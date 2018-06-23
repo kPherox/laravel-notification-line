@@ -3,15 +3,20 @@
 namespace NotificationChannels\Line;
 
 use NotificationChannels\Line\Exceptions\CouldNotSendNotification;
-use NotificationChannels\Line\Events\MessageWasSent;
-use NotificationChannels\Line\Events\SendingMessage;
 use Illuminate\Notifications\Notification;
+use LINE\LINEBot;
 
 class LineChannel
 {
-    public function __construct()
+    /** @var \LINE\LINEBot */
+    protected $line;
+
+    /**
+     * @param \LINE\LINEBot $line
+    **/
+    public function __construct(LINEBot $line)
     {
-        // Initialisation code here
+        $this->line = $line;
     }
 
     /**

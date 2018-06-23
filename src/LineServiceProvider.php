@@ -3,32 +3,28 @@
 namespace NotificationChannels\Line;
 
 use Illuminate\Support\ServiceProvider;
+use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use LINE\LINEBot;
 
 class LineServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
-     */
+    **/
     public function boot()
     {
         // Bootstrap code here.
 
-        /**
-         * Here's some example code we use for the pusher package.
-
-        $this->app->when(Channel::class)
-            ->needs(Pusher::class)
+        $this->app->when(LineChannel::class)
+            ->needs(LINEBot::class)
             ->give(function () {
-                $pusherConfig = config('broadcasting.connections.pusher');
+                $httpClient = new CurlHTTPClient(config('services.line.token'));
 
-                return new Pusher(
-                    $pusherConfig['key'],
-                    $pusherConfig['secret'],
-                    $pusherConfig['app_id']
+                return new LINEBot(
+                    $httpClient,
+                    ['channelSecret' => config('services.line.secret')]
                 );
             });
-         */
-
     }
 
     /**
