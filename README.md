@@ -46,7 +46,7 @@ composer require kpherox/laravel-notification-line
 'line' => [
 	'token'    => env('LINE_CHANNEL_ACCESS_TOKEN'),
 	'secret' => env('LINE_CHANNEL_SECRET'),
-	'userId'   => env('LINE_DEFAULT_USER_ID')
+	'userd'   => env('LINE_DEFAULT_USER_ID')
 ]
 ...
 ```
