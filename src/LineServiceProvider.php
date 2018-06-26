@@ -10,7 +10,7 @@ class LineServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
-     **/
+     */
     public function boot()
     {
         // Bootstrap code here.

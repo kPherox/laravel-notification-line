@@ -14,7 +14,7 @@ class LineChannel
 
     /**
      * @param \LINE\LINEBot $line
-     **/
+     */
     public function __construct(LINEBot $line)
     {
         $this->line = $line;
