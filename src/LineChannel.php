@@ -2,10 +2,10 @@
 
 namespace NotificationChannels\Line;
 
-use NotificationChannels\Line\Exceptions\CouldNotSendNotification;
-use LINE\LINEBot\Exception\CurlExecutionException;
-use Illuminate\Notifications\Notification;
 use LINE\LINEBot;
+use Illuminate\Notifications\Notification;
+use LINE\LINEBot\Exception\CurlExecutionException;
+use NotificationChannels\Line\Exceptions\CouldNotSendNotification;
 
 class LineChannel
 {
@@ -14,7 +14,7 @@ class LineChannel
 
     /**
      * @param \LINE\LINEBot $line
-    **/
+     **/
     public function __construct(LINEBot $line)
     {
         $this->line = $line;
@@ -40,7 +40,7 @@ class LineChannel
             throw CouldNotSendNotification::curlError($e);
         }
 
-        if (!$response->isSucceeded()) {
+        if (! $response->isSucceeded()) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($response);
         }
     }
