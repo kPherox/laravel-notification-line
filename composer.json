@@ -1,7 +1,7 @@
 {
-    "name": "laravel-notification-channels/line",
+    "name": "kpherox/laravel-notification-line",
     "description": "LINE Notifications Driver",
-    "homepage": "https://github.com/laravel-notification-channels/line",
+    "homepage": "https://github.com/kPherox/laravel-notification-line",
     "license": "MIT",
     "authors": [
         {
