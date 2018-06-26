@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\Line;
 
-use NotificationChannels\Line\Exceptions\CouldNotSendNotification;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use NotificationChannels\Line\Exceptions\CouldNotSendNotification;
 
 class LineMessage extends TextMessageBuilder
 {
@@ -15,7 +15,7 @@ class LineMessage extends TextMessageBuilder
     public function __construct($text, $extraTexts = null)
     {
         $extra = [];
-        if (!is_null($extraTexts)) {
+        if (! is_null($extraTexts)) {
             $args = func_get_args();
             $extra = array_slice($args, 1);
         }

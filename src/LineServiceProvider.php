@@ -2,15 +2,15 @@
 
 namespace NotificationChannels\Line;
 
+use LINE\LINEBot;
 use Illuminate\Support\ServiceProvider;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
-use LINE\LINEBot;
 
 class LineServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
-    **/
+     **/
     public function boot()
     {
         // Bootstrap code here.
