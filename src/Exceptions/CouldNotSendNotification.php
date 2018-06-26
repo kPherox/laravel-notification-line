@@ -26,4 +26,9 @@ class CouldNotSendNotification extends \Exception
     {
         return new static("LINEBot Curl error: ".$exeption->getMessage());
     }
+
+    public static function exceededOfMessages(int $count)
+    {
+        return new static("It exceeds the maximum of messages that can be sent. max:5, attempted:".$count);
+    }
 }
