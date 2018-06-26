@@ -31,11 +31,25 @@ This is where your description should go. Add a little code example so build can
 
 ## Installation
 
-Please also include the steps for any third-party service setup that's required for this package.
+You can install this package via composer:¬
+```
+composer require kpherox/laravel-notification-line
+```
 
 ### Setting up the LINE service
-
-Optionally include a few steps how users can set up the service.
+1. [Start using Messaging API](https://developers.line.me/console/register/messaging-api/provider/)
+    - Select Plan: `Developer Trial`, Or upgrade to `Pro` after selecting `Free`.
+2. Click the `Messaging settings` button on your channel.
+3. Paste your channel's access token and secret, in your `services.php` config file:
+```
+...
+'line' => [
+	'token'    => env('LINE_CHANNEL_ACCESS_TOKEN'),
+	'secret' => env('LINE_CHANNEL_SECRET'),
+	'userId'   => env('LINE_DEFAULT_USER_ID')
+]
+...
+```
 
 ## Usage
 
