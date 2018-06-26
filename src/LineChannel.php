@@ -32,7 +32,7 @@ class LineChannel
     {
         $lineMessage = $notification->toLine($notifiable);
 
-        $to = $notifiable->routeNotificationFor('line');
+        $to = $notifiable->routeNotificationFor('line') ?: config('services.line.user_id');
 
         try {
             $response = $this->line->pushMessage($to, $lineMessage);
