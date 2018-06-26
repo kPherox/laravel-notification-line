@@ -25,7 +25,5 @@ class LineMessage extends TextMessageBuilder
         }
 
         $this->texts = array_merge([$text], $extra);
-
-        $this->contents = $contents;
     }
 }
