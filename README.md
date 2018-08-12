@@ -16,7 +16,8 @@ This package makes it easy to send notifications using [LINE](https://developers
 - [Installation](#installation)
 	- [Setting up the LINE service](#setting-up-the-line-service)
 - [Usage](#usage)
-	- [Available Message methods](#available-message-methods)
+	- [Text Message](#text-message)
+	- [Custom User](#custom-user)
 - [Changelog](#changelog)
 - [Testing](#testing)
 - [Security](#security)
@@ -78,7 +79,7 @@ class NewsWasPublished extends Notification
 }
 ```
 
-### Custom user
+### Custom User
 If you need to change the user, add the `routeNotificationForLine` method to the model:
 ```
 class LineUser extends Eloquent
