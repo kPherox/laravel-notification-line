@@ -11,10 +11,6 @@
 
 This package makes it easy to send notifications using [LINE](https://developers.line.me/) with Laravel 5.3.
 
-This is where your description should go. Add a little code example so build can understand real quick how the package can be used. Try and limit it to a paragraph or two.
-
-
-
 ## Contents
 
 - [Installation](#installation)
@@ -31,7 +27,7 @@ This is where your description should go. Add a little code example so build can
 
 ## Installation
 
-You can install this package via composer:¬
+You can install this package via composer:
 ```
 composer require kpherox/laravel-notification-line
 ```
@@ -53,11 +49,48 @@ composer require kpherox/laravel-notification-line
 
 ## Usage
 
-Some code examples, make it clear how to use the package
+Follow Laravel's documentation to add the channel to your Notification class.
 
-### Available Message methods
+### Text Message
 
-A list of all available options
+```php
+use NotificationChannels\Line\LineChannel;
+use NotificationChannels\Line\LineMessage;
+
+class NewsWasPublished extends Notification
+{
+
+    /**
+     * Get the notification's delivery channels.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function via($notifiable)
+    {
+        return [LineChannel::class];
+    }
+
+    public function toLine($notifiable)
+    {
+        return new LineMessage('Laravel notifications are awesome!'/*, 'Multiple message. Max: 5'*/);
+    }
+}
+```
+
+### Custom user
+If you need to change the user, add the `routeNotificationForLine` method to the model:
+```
+class LineUser extends Eloquent
+{
+    use Notifiable;
+
+    public function routeNotificationForLine()
+    {
+        return $this->id;
+    }
+...
+```
 
 ## Changelog
 
