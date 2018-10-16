@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\Line;
 
-use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
+use LINE\LINEBot\Constant\MessageType;
 use NotificationChannels\Line\Exceptions\CouldNotSendNotification;
 
 class LineMessage implements MessageBuilder
@@ -33,7 +33,7 @@ class LineMessage implements MessageBuilder
      */
     public function buildMessage() : array
     {
-        if (!empty($this->message)) {
+        if (! empty($this->message)) {
             return $this->message;
         }
         foreach ($this->texts as $text) {
@@ -42,6 +42,7 @@ class LineMessage implements MessageBuilder
                 'text' => $text,
             ];
         }
+
         return $this->message;
     }
 }
